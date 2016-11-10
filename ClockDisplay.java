@@ -30,16 +30,19 @@ public class ClockDisplay
     {
         hours.setValue(newHours);
         minutes.setValue(newMinutes);
-        
-        
     }
     
-    public void avanzarHora()
+    public void avanzarMinuto()
     {
+        minutes.increment();
+        if (minutes.getValue() == 0)
+        {
+            hours.increment();
+        }
     }
     
     public String devolverHora()
     {
-        return "";
+        return hours.getDisplayValue() + ":" + minutes.getDisplayValue();
     }
 }
